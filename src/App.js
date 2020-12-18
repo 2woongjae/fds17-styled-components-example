@@ -1,5 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+
+import Button, { PrimaryStyledButton } from "./components/Button";
+
+function UppercaseButton(props) {
+  return <button {...props} children={props.children.toUpperCase()} />;
+}
 
 function App() {
   return (
@@ -7,16 +13,23 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          <Button>버튼</Button>
+          <Button primary>버튼</Button>
+          <Button error>버튼</Button>
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p>
+          <PrimaryStyledButton>주 버튼</PrimaryStyledButton>
+        </p>
+        <p>
+          <Button as="a" href="/hello">
+            버튼
+          </Button>
+        </p>
+        <p>
+          <Button as={UppercaseButton} href="/hello">
+            button
+          </Button>
+        </p>
       </header>
     </div>
   );
